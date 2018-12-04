@@ -1,0 +1,10 @@
+#if ( !$cookiesDismissed )
+
+<div class="afCookiesBar">
+    <div class="afCookiesBar__wrapper">
+        <p>Vi använder cookies för att förbättra din upplevelse. Genom att surfa vidare accepterar du dessa cookies.</p>
+        <button class="afCookiesBar__button">Jag förstår</button>
+    </div>
+</div>
+
+#end

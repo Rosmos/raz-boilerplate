@@ -1,0 +1,60 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function to-length($value, $unit) {
+    $units: ('px': 1px, 'cm': 1cm, 'mm': 1mm, '%': 1%, 'ch': 1ch, 'pc': 1pc, 'in': 1in, 'em': 1em, 'rem': 1rem, 'pt': 1pt, 'ex': 1ex, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
+    @if not index(map-keys($units), $unit) {
+        $_: log('Invalid unit `#{$unit}`.');
+    }
+    @return $value * map-get($units, $unit);
+}
+
+// less_unit( 5px ) returns 5
+// less_unit( 5, px ) returns 5px
+@function less_unit( $number, $unit: false ) {
+    @if ( $unit ) {
+        $val: strip-unit( $number );
+        $unit: to-length( $val, #{$unit} );
+        @return $unit;
+    }
+    @return strip-unit( $number );
+}
+
+@function rem( $px, $useFontPxFallback: false ) {
+    $rem: ( $px / 16px ) * 1rem;
+    @if ( $useFontPxFallback ) {
+        @return unquote($px + "; font-size: " + $rem);
+    }
+    @return $rem;
+}
+
+@function em( $px, $base: 16px ) {
+    $em: ( $px / $base ) * 1em;
+    @return $em;
+}
+
+@function vw( $target, $context ) {
+    $vw-context: ( strip-unit( $context ) * 0.01 ) * 1px;
+    @return ( $target / $vw-context ) * 1vw;
+}
+
+@function lineHeight( $px, $base: 16px ) {
+    $number: ($px / $base);
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+    @return $number;
+}
+
+@function data-uri( $file ) {
+    @return unquote("url('" + $file + "', true)"); // Force Base 64!
+}
+

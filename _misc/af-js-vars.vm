@@ -1,0 +1,12 @@
+
+## Place as snippet on sitePage
+
+<script>
+    var _af = _af || {}, AF = AF || {}; _af.init = [];
+    document.documentElement.className += ' bv-js ';
+</script>
+<style>
+    /* Reset SV blockquote */
+    blockquote.sv-blockquote, blockquote.sv-blockquote-edit { position: relative; background-image: none; margin: 0; padding: 0; }
+</style>
+
