@@ -4,7 +4,7 @@
 Node, Gulp, Sass, LiveReload, Autoprefixer, minification, 
 image optimization and embedding and more. 
 
-*Created by Henrik Ekelöf at Bouvet Örebro in 2016.*
+*Created by Henrik Ekelöf at ÅF Digital Solutions in 2018.*
 
 
 ## Content
