@@ -86,6 +86,8 @@ Prerequisites: Node.js
 
 - Edit package.json (Name, description, GitHub URLs)
 - Edit _config.yml (set project name)
+- Run `$ npm install -g gulp@version_you_need` for gulp cli
+- Run `$ npm install gulp@3.9.1` for local gulp
 - Run `$ npm install`
 
 If you run into errors with installing gulp-sass, try `$ npm install node-sass --unsafe-perm` and `$ npm install` again. This is because node-sass is not pure JavaScript module, it includes binary component as well as the custom installation scripts.
